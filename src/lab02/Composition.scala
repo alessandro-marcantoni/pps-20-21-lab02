@@ -6,4 +6,8 @@ object Composition {
     i => f(g(i))
   }
 
+  def genericCompose[A, B, C](f: B => C, g: A => B): A => C = {
+    x => f(g(x))
+  }
+
 }
