@@ -2,26 +2,13 @@ package lab02
 
 object Currying {
 
-  // CurriedFunType
-  val p1: Double => (Double => (Double => Boolean)) = {
-    x => (y => (z => x <= y && y <= z))
-  }
+  val curriedVal: Double => Double => Double => Boolean = x => y => z => x <= y && y <= z
 
-  // NonCurriedFunType
-  val p2: (Double, Double, Double) => Boolean = (x, y, z) => {
-    x <= y && y <= z
-  }
+  val nonCurriedVal: (Double, Double, Double) => Boolean = (x, y, z) => x <= y && y <= z
 
-  // CurriedMethod
-  def p3(x: Double)(y: Double)(z: Double): Boolean = x match {
-    case x if x <= y => (y <= z)
-    case _ => false
-  }
+  def curriedDef(x: Double)(y: Double)(z: Double): Boolean = x <= y && y <= z
+  // def curriedDef(x: Double) = (y: Double) => (z:Double) =>  x <= y && y <= z
 
-  // NonCurriedMethod
-  def p4(x:Double, y:Double, z:Double): Boolean = x match {
-    case x if x <= y && y <= z => true
-    case _ => false
-  }
+  def nonCurriedDef(x:Double, y:Double, z:Double): Boolean = x <= y && y <= z
 
 }

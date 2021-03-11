@@ -8,14 +8,14 @@ class CurryingTest {
 
   @Test
   def testPredicate(): Unit = {
-    assertTrue(p4(10, 20, 30))
-    assertFalse(p4(20, 10, 30))
+    assertTrue(nonCurriedDef(10, 20, 30))
+    assertFalse(nonCurriedDef(20, 10, 30))
   }
 
   @Test
   def testPredicateCurrying(): Unit = {
-    assertTrue(p3(10)(20)(30))
-    assertFalse(p3(20)(10)(30))
+    assertTrue(curriedDef(10)(20)(30))
+    assertFalse(curriedDef(20)(10)(30))
   }
 
 }

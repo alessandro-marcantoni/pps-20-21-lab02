@@ -32,11 +32,8 @@ object ExtendedOption {
       case _ => None()
     }
 
-    def map2[A, B, C](opt1: Option[A])(opt2: Option[B])(combinator: (A, B) => C): Option[C] = opt1 match {
-      case Some(a) => opt2 match {
-        case Some(b) => Some(combinator(a, b))
-        case _ => None()
-      }
+    def map2[A, B, C](opt1: Option[A])(opt2: Option[B])(combinator: (A, B) => C): Option[C] = (opt1, opt2) match {
+      case (Some(a), Some(b)) => Some(combinator(a, b))
       case _ => None()
     }
 
